@@ -1,6 +1,7 @@
+import AllHomes from "../../Pages/AllHomes/AllHomes";
+
 const { createBrowserRouter } = require("react-router-dom");
 const { default: LayOut } = require("../../LayOut/LayOut");
-const { default: Home } = require("../../Pages/Home/Home");
 
 export const router = createBrowserRouter([
     {
@@ -9,7 +10,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <AllHomes></AllHomes>
             }
         ]
     }
