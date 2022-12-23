@@ -1,27 +1,45 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
-    // const { creatUser } = useContext(AuthContext)
+    const { creatUser, updateUser } = useContext(AuthContext)
     const [message, setMessage] = useState('')
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const handleSignup = data => {
         console.log(data);
-        // creatUser(data.email, data.password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //         if (user.uid) {
-        //             setMessage('Congratulations!!! Account created.')
-        //             // navigate('/home')
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.error(error);
-        //     })
-        // setMessage('')
+        creatUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                if (user.uid) {
+                    toast.success('Congratulations!!! Account created.')
+                    setMessage('Congratulations!!! Account created.')
+
+                    const userInfo = {
+                        displayName: data.name
+                    }
+
+                    updateUser(userInfo)
+                        .then(() => {
+                            // userCreat(data.name, data.email)
+
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        })
+
+                    navigate('/')
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            })
+        setMessage('')
 
     }
 
@@ -64,7 +82,7 @@ const Register = () => {
                             </div>
                         </>
                     }
-                    <input className='w-full  max-w-xs btn btn-warning mt-5 font-bold text-white' value='Register' type="submit" />
+                    <input style={{ backgroundColor: '#336699' }} className='w-full  max-w-xs btn mt-5 font-bold text-white' value='Register' type="submit" />
                 </form>
             </div>
         </div>

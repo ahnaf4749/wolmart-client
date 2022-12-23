@@ -1,5 +1,6 @@
 import AllHomes from "../../Pages/AllHomes/AllHomes";
 import Login from "../../Pages/Login/Login";
+import MyOrder from "../../Pages/MyOrder/MyOrder";
 import Register from "../../Pages/Register/Register";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/myorder',
+                element: <MyOrder></MyOrder>
             }
         ]
     }

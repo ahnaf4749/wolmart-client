@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
-    // const { signUp } = useContext(AuthContext)
+    const { signUp } = useContext(AuthContext)
     const [errorMessage, setErrorMesage] = useState('')
     const handleLogin = data => {
-        // console.log(data);
-        // signUp(data.email, data.password)
-        //     .then(result => {
-        //         const user = result.user
-        //         if (user.uid) {
+        console.log(data);
+        signUp(data.email, data.password)
+            .then(result => {
+                const user = result.user
+                if (user.uid) {
 
-        //         }
-        //     })
-        //     .catch(err => {
-        //         console.error(err);
-        //         if (err) {
-        //             setErrorMesage('Enter correct details.')
-        //         }
-        //     })
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                if (err) {
+                    setErrorMesage('Enter correct details.')
+                }
+            })
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
@@ -49,7 +50,7 @@ const Login = () => {
                             </div>
                         </>
                     }
-                    <input className='w-full btn btn-warning mt-6 max-w-xs' value='Login' type="submit" />
+                    <input style={{ backgroundColor: '#336699' }} className='w-full btn mt-6 max-w-xs' value='Login' type="submit" />
                 </form>
             </div>
         </div>
