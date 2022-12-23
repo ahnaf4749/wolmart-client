@@ -23,11 +23,11 @@ const Header = () => {
             <li><Link>Blog</Link></li>
             {/* <li><Link to='/register'>Register</Link></li>
             <li><Link to='/login'>Login</Link></li> */}
-            <li><Link to='/myorder'>My Order</Link></li>
+
             {
                 user?.uid ?
                     <>
-
+                        <li><Link to='/myorder'>My Order</Link></li>
                         <li><button onClick={handleLogout} className='btn btn-ghost'>Sign Out</button></li>
                     </>
                     :
