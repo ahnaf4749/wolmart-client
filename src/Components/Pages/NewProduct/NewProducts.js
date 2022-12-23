@@ -1,25 +1,6 @@
 import React from 'react';
 
-import img1 from '../../../images/home/1-1.jpg'
-import img2 from '../../../images/home/1-2.jpg'
-
 const NewProducts = () => {
-
-    const newProducts = [
-        {
-            img: img1,
-            name: 'Get Up to 20% ',
-            tittle: 'OFF SPORTS OUTFITS COLLECTION',
-            price: '$177.00'
-        },
-        {
-            img: img2,
-            name: 'New Arrivals',
-            tittle: 'ACCESSORIES COLLECTION',
-            price: '$99.00'
-
-        },
-    ]
 
     return (
         <div className='grid lg:grid-cols-2 sm:grid-cols-1 mt-16'>

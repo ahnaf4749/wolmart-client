@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/home/logo.png'
-import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Header = () => {
 
 
     const menuItems =
         <React.Fragment>
-            <li><a>Item 1</a></li>
-            <li><a>Item 2</a></li>
-            <li><a>Item 2</a></li>
+            <li><Link>Blog</Link></li>
+            <li><Link to='/register'>Register</Link></li>
+            <li><Link to='/login'>Login</Link></li>
         </React.Fragment>
 
     return (
@@ -25,7 +24,9 @@ const Header = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <img className='h-12' src={logo} alt='' />
+                    <Link to='/'>
+                        <img className='h-12' src={logo} alt='' />
+                    </Link>
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
