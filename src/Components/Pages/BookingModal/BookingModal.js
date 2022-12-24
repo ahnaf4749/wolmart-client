@@ -25,7 +25,7 @@ const BookingModal = ({ product, refetch, setProduct }) => {
         }
 
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://y-gamma-blond.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,6 +35,7 @@ const BookingModal = ({ product, refetch, setProduct }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
+                    console.log('sagor');
                     setProduct(null)
                     toast.success('booking succesfully')
                     form.reset()

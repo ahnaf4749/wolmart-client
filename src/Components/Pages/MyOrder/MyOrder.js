@@ -10,13 +10,13 @@ const MyOrder = () => {
 
     const { data: bookings = [], refetch } = useQuery({
         queryKey: ['bookings', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+        queryFn: () => fetch(`https://y-gamma-blond.vercel.app/bookings?email=${user?.email}`)
             .then(res => res.json())
     })
 
     const handleDelete = booking => {
         // console.log(user._id);
-        fetch(`http://localhost:5000/bookings/${booking._id}`, {
+        fetch(`https://y-gamma-blond.vercel.app/bookings/${booking._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

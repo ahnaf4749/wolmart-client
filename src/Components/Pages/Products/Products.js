@@ -9,7 +9,7 @@ const Products = () => {
 
     const { data: products = [], refetch, isLoading } = useQuery({
         queryKey: [' appoDetails'],
-        queryFn: () => fetch(`http://localhost:5000/allProducts`)
+        queryFn: () => fetch(`https://y-gamma-blond.vercel.app/allProducts`)
             .then(res => res.json())
     })
 
@@ -28,7 +28,7 @@ const Products = () => {
                 }
             </div>
             {
-                products &&
+                product &&
                 <BookingModal
                     product={product}
                     refetch={refetch}
